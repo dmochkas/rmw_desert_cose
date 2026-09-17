@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['_7erxstream_0',['~RxStream',['../classcbor_1_1RxStream.html#a13ecba4aa494f6a5d04cb41d924c5f61',1,'cbor::RxStream']]]
+  ['wrap_0',['wrap',['../classsecurity_1_1SecurityLayer.html#a558020dbde90e4489b35e6639e8aff8b',1,'security::SecurityLayer']]],
+  ['writer_1',['WRITER',['../structcbor_1_1TxStream_1_1WRITER.html',1,'cbor::TxStream']]]
 ];

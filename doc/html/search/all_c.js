@@ -1,7 +1,7 @@
 var searchData=
 [
   ['sec_5futils_2eh_0',['sec_utils.h',['../sec__utils_8h.html',1,'']]],
-  ['securitylayer_1',['SecurityLayer',['../classsecurity_1_1SecurityLayer.html',1,'security']]],
+  ['securitylayer_1',['securitylayer',['../classsecurity_1_1SecurityLayer.html',1,'security::SecurityLayer'],['../classsecurity_1_1SecurityLayer.html#a113f48f0428d906be314d9fe60b13aaa',1,'security::SecurityLayer::SecurityLayer()'],['../classsecurity_1_1SecurityLayer.html#ae746c85b2d7d36eb9d55522ec6aef086',1,'security::SecurityLayer::SecurityLayer(const AeadParams &amp;aead_params, KdfAlgorithms kdf, const std::vector&lt; uint8_t &gt; &amp;master_key, const std::vector&lt; uint8_t &gt; &amp;master_salt, size_t piv_size, size_t sender_seq_number, const std::vector&lt; uint8_t &gt; &amp;sender_id, const std::vector&lt; uint8_t &gt; &amp;receiver_id)']]],
   ['securitylayer_2eh_2',['SecurityLayer.h',['../SecurityLayer_8h.html',1,'']]],
   ['securityparams_2eh_3',['SecurityParams.h',['../SecurityParams_8h.html',1,'']]],
   ['send_5fdiscovery_5fbeacon_4',['send_discovery_beacon',['../namespaceDiscovery.html#ab435705870ebef2f12289243d9c9fad6',1,'Discovery']]],

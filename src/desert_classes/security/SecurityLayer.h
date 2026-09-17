@@ -72,12 +72,67 @@ enum SecurityResult
 class SecurityLayer
 {
   public:
+   /**
+    * @brief Creates a security layer using compile-time configuration values.
+    *
+    * @throws std::runtime_error If identifiers or key material are invalid,
+    *                            or if the security context cannot be derived.
+    */
     SecurityLayer();
+
+   /**
+    * @brief Creates a security layer from explicitly supplied parameters.
+    *
+    * @param aead_params Parameters of the AEAD algorithm to use.
+    * @param kdf Key-derivation algorithm to use.
+    * @param master_key Master secret used to derive encryption keys.
+    * @param master_salt Salt used during key derivation.
+    * @param piv_size Size, in bytes, of the Partial IV carried in messages.
+    * @param sender_seq_number Initial sender sequence number.
+    * @param sender_id Sender identifier used to derive the sender key.
+    * @param receiver_id Receiver identifier used to derive the receiver key.
+    * @throws std::runtime_error If the security context cannot be derived.
+    */
     SecurityLayer(const AeadParams &aead_params, KdfAlgorithms kdf, const std::vector<uint8_t> &master_key,
       const std::vector<uint8_t> &master_salt, size_t piv_size, size_t sender_seq_number,
       const std::vector<uint8_t> &sender_id, const std::vector<uint8_t> &receiver_id);
 
+   /**
+    * @brief Encrypts and serializes an application payload as a COSE message.
+    *
+    * Generates a Partial IV from the current sender sequence number, adds it 
+    * as an unprotected COSE header, encrypts the payload with the sender key, 
+    * and optionally applies the stateless COSE compression format.
+    *
+    * On success, the sender sequence number is incremented.
+    *
+    * @param data Buffer containing the plaintext payload and receiving output.
+    * @param data_len Length of the plaintext payload in bytes.
+    * @param data_max_len Total capacity of @p data in bytes.
+    * @param cose_ptr Output pointer to the beginning of the encoded message.
+    * @param cose_len Output length of the encoded COSE message in bytes.
+    * @return OK on success; otherwise an error describing the failed step.
+    *
+    * @note The caller must ensure that @p data has sufficient capacity for
+    *       the resulting serialized message.
+    */
     SecurityResult wrap(uint8_t* data, size_t data_len, size_t data_max_len, uint8_t** cose_ptr, size_t* cose_len);
+
+   /**
+    * @brief Decodes, authenticates, and decrypts a COSE message.
+    *
+    * If stateless compression is enabled, the method first reconstructs the
+    * standard COSE serialization. It then decrypts the message using the
+    * receiver key and copies the recovered plaintext to @p data.
+    *
+    * @param data Buffer containing the received COSE message. On success,
+    *             it is overwritten with the plaintext payload.
+    * @param data_len Length of the received message in bytes.
+    * @param data_max_len Total capacity of @p data in bytes.
+    * @param new_data_len Output length of the recovered plaintext in bytes.
+    * @return OK on success; UNWRAP_ERROR if parsing, authentication, or
+    *         decryption fails; otherwise a specific processing error.
+    */
     SecurityResult unwrap(uint8_t* data, size_t data_len, size_t data_max_len, size_t* new_data_len);
 
   private:

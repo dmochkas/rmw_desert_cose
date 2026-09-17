@@ -67,11 +67,40 @@ enum KdfAlgorithms
 class AeadParams
 {
   public:
+   /**
+    * @brief Creates the parameter set for an AEAD algorithm.
+    *
+    * @param alg AEAD algorithm to configure.
+    * @throws std::runtime_error If @p alg is not supported.
+    */
     AeadParams(AeadAlgorithms alg);
 
+  /**
+    * @brief Returns the configured AEAD algorithm.
+    *
+    * @return The selected AEAD algorithm identifier.
+    */
     AeadAlgorithms get_alg() const { return alg_; }
+
+   /**
+    * @brief Returns the size of the AEAD key.
+    *
+    * @return Key size in bytes.
+    */
     uint16_t get_key_size() const { return key_size_; }
+
+   /**
+    * @brief Returns the size of the AEAD nonce.
+    *
+    * @return Nonce size in bytes.
+    */
     uint16_t get_nonce_size() const { return nonce_size_; }
+
+   /**
+    * @brief Returns the size of the AEAD authentication tag.
+    *
+    * @return Authentication-tag size in bytes.
+    */
     uint16_t get_tag_size() const { return tag_size_; }
 
   private:

@@ -43,6 +43,21 @@
 
 #define MIN(a, b) ((a) > (b) ? (b) : (a))
 
+/**
+ * @brief Decodes a hexadecimal string into a byte vector.
+ *
+ * The input can optionally begin with the prefixes @c 0x or @c 0X.
+ * After an optional prefix, the string must contain an even number of
+ * valid hexadecimal characters.
+ *
+ * @param hex String containing hexadecimal byte values.
+ * @param out Output vector receiving the decoded bytes.
+ * @return true if the complete input is valid and has been decoded;
+ *         false if the input has an odd length or contains non-hexadecimal
+ *         characters.
+ *
+ * @note On failure, @p out is cleared.
+ */
 bool decode_hex(const std::string& hex, std::vector<uint8_t>& out);
 
 #endif
