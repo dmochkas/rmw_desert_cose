@@ -1,3 +1,35 @@
+/****************************************************************************
+ * Copyright (C) 2026 Davide Costa                                          *
+ *                                                                          *
+ * This file is part of RMW desert.                                         *
+ *                                                                          *
+ *   RMW desert is free software: you can redistribute it and/or modify it  *
+ *   under the terms of the GNU General Public License as published by the  *
+ *   Free Software Foundation, either version 3 of the License, or any      *
+ *   later version.                                                         *
+ *                                                                          *
+ *   RMW desert is distributed in the hope that it will be useful,          *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+ *   GNU General Public License for more details.                           *
+ *                                                                          *
+ *   You should have received a copy of the GNU General Public License      *
+ *   along with RMW desert.  If not, see <http://www.gnu.org/licenses/>.    *
+ ****************************************************************************/
+
+/**
+ * @file SecurityLayer.h
+ * @brief Class used to handle the encryption of the stream
+ * 
+ * This header declares the security layer used to protect application data.
+ * It derives sender and receiver contexts, builds nonces, and performs COSE
+ * wrapping and unwrapping of payloads using the selected AEAD and KDF schemes.
+ * It also manages key material, identifiers, and serialization buffers.
+ *
+ * @author Dmytro Ochkas
+ *
+ */
+
 #ifndef SECURITY_LAYER_H
 #define SECURITY_LAYER_H
 

@@ -1,3 +1,35 @@
+/****************************************************************************
+ * Copyright (C) 2026 Davide Costa                                          *
+ *                                                                          *
+ * This file is part of RMW desert.                                         *
+ *                                                                          *
+ *   RMW desert is free software: you can redistribute it and/or modify it  *
+ *   under the terms of the GNU General Public License as published by the  *
+ *   Free Software Foundation, either version 3 of the License, or any      *
+ *   later version.                                                         *
+ *                                                                          *
+ *   RMW desert is distributed in the hope that it will be useful,          *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of         *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          *
+ *   GNU General Public License for more details.                           *
+ *                                                                          *
+ *   You should have received a copy of the GNU General Public License      *
+ *   along with RMW desert.  If not, see <http://www.gnu.org/licenses/>.    *
+ ****************************************************************************/
+
+/**
+ * @file SecurityParams.h
+ * @brief Class containing the parameters of the selected cryptography
+ * 
+ * This header defines the algorithms and parameter sets used by the security 
+ * layer. It provides AEAD and KDF identifiers together with the key, nonce, 
+ * and authentication-tag sizes required by each supported AEAD algorithm. 
+ * These parameters are used to configure cryptographic context derivation.
+ *
+ * @author Dmytro Ochkas
+ *
+ */
+
 #ifndef SECURITY_CONFIG_H
 #define SECURITY_CONFIG_H
 
@@ -21,7 +53,8 @@ enum AeadAlgorithms
   AEAD_UNKNOWN
 };
 
-enum KdfAlgorithms {
+enum KdfAlgorithms
+{
   HKDF_ASCON,
   HKDF_HMAC256,
   KDF_UNKNOWN

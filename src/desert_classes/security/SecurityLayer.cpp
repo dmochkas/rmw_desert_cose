@@ -13,22 +13,28 @@
 namespace security
 {
 
-static AeadAlgorithms str_to_aead_algo(const std::string& str) {
-  if (str == AEAD_ALGO_ASCON_128) {
+static AeadAlgorithms str_to_aead_algo(const std::string& str)
+{
+  if (str == AEAD_ALGO_ASCON_128)
+  {
     return ASCON_AEAD128;
   }
-  if (str == AEAD_ALGO_ASCON_128_64) {
+  if (str == AEAD_ALGO_ASCON_128_64)
+  {
     return ASCON_AEAD128_64;
   }
-  if (str == AEAD_ALGO_ASCON_128_32) {
+  if (str == AEAD_ALGO_ASCON_128_32)
+  {
     return ASCON_AEAD128_32;
   }
 
   return AEAD_UNKNOWN;
 }
 
-static KdfAlgorithms str_to_kdf_algo(const std::string& str) {
-  if (str == KDF_ALGO_ASCON_256) {
+static KdfAlgorithms str_to_kdf_algo(const std::string& str)
+{
+  if (str == KDF_ALGO_ASCON_256)
+  {
     return HKDF_ASCON;
   }
 
@@ -52,8 +58,10 @@ static cose_algo_t aead_algo_to_cose_algo(AeadAlgorithms algo)
   }
 }
 
-static cose_algo_t kdf_algo_to_cose_algo(KdfAlgorithms algo) {
-  switch (algo) {
+static cose_algo_t kdf_algo_to_cose_algo(KdfAlgorithms algo)
+{
+  switch (algo)
+  {
     case HKDF_ASCON:
       return COSE_ALGO_HMAC_ASCON_HASH256;
     case HKDF_HMAC256:
@@ -63,8 +71,10 @@ static cose_algo_t kdf_algo_to_cose_algo(KdfAlgorithms algo) {
   }
 }
 
-static SecurityResult cbor_err_to_sec_err(int err) {
-  switch (err) {
+static SecurityResult cbor_err_to_sec_err(int err)
+{
+  switch (err)
+  {
     case 0:
       return OK;
     case NANOCBOR_ERR_END:
@@ -81,11 +91,13 @@ SecurityLayer::SecurityLayer()
     piv_bytes_(piv_size_),
     sender_seq_number_(0)
 {
-  if (!decode_hex(SENDER_ID, sender_id_)) {
+  if (!decode_hex(SENDER_ID, sender_id_))
+  {
     throw std::runtime_error("Failed to parse the sender id");
   }
 
-  if (!decode_hex(RECEIVER_ID, receiver_id_)) {
+  if (!decode_hex(RECEIVER_ID, receiver_id_))
+  {
     throw std::runtime_error("Failed to parse the receiver id");
   }
 
@@ -102,7 +114,8 @@ SecurityLayer::SecurityLayer()
   }
 
   auto res = derive_context(master_key, master_salt);
-  if (res != OK) {
+  if (res != OK)
+  {
     throw std::runtime_error("Security context initialization error");
   }
 }
@@ -119,7 +132,8 @@ SecurityLayer::SecurityLayer(const AeadParams &aead_params, KdfAlgorithms kdf, c
       receiver_id_(receiver_id)
 {
   auto res = derive_context(master_key, master_salt);
-  if (res != OK) {
+  if (res != OK)
+  {
     throw std::runtime_error("Security context initialization error");
   }
 }
@@ -130,27 +144,32 @@ SecurityResult SecurityLayer::build_kdf_info(const std::vector<uint8_t>& id, cos
   int st = COSE_OK;
   nanocbor_encoder_init(&info, internal_buf_, sizeof(internal_buf_));
   st = nanocbor_fmt_array(&info, 4);
-  if (st < 0) {
+  if (st < 0)
+  {
     return cbor_err_to_sec_err(st);
   }
 
   st = nanocbor_put_bstr(&info, id.data(), id.size());
-  if (st < 0) {
+  if (st < 0)
+  {
     return cbor_err_to_sec_err(st);
   }
 
   st = nanocbor_fmt_int(&info, alg);
-  if (st < 0) {
+  if (st < 0)
+  {
     return cbor_err_to_sec_err(st);
   }
 
   st = nanocbor_put_tstrn(&info, type.data(), type.size());
-  if (st < 0) {
+  if (st < 0)
+  {
     return cbor_err_to_sec_err(st);
   }
 
   st = nanocbor_fmt_uint(&info, len);
-  if (st < 0) {
+  if (st < 0)
+  {
     return cbor_err_to_sec_err(st);
   }
 
@@ -170,7 +189,8 @@ SecurityResult SecurityLayer::derive_key(const std::vector<uint8_t>& ikm, const 
     aead_params_.get_key_size(),
     &info_ptr,
     &info_len);
-  if (info_res != OK) {
+  if (info_res != OK)
+  {
     return info_res;
   }
 
@@ -184,7 +204,8 @@ SecurityResult SecurityLayer::derive_key(const std::vector<uint8_t>& ikm, const 
     key_out.data(),
     aead_params_.get_key_size(),
     kdf_algo_to_cose_algo(kdf_));
-  if (kdf_res != COSE_OK) {
+  if (kdf_res != COSE_OK)
+  {
     return CONTEXT_DERIVE_ERROR;
   }
 
@@ -204,7 +225,8 @@ SecurityResult SecurityLayer::derive_iv(const std::vector<uint8_t>& ikm, const s
     aead_params_.get_nonce_size(),
     &info_ptr,
     &info_len);
-  if (info_res != OK) {
+  if (info_res != OK)
+  {
     return info_res;
   }
 
@@ -218,7 +240,8 @@ SecurityResult SecurityLayer::derive_iv(const std::vector<uint8_t>& ikm, const s
     iv_out.data(),
     aead_params_.get_nonce_size(),
     kdf_algo_to_cose_algo(kdf_));
-  if (kdf_res != COSE_OK) {
+  if (kdf_res != COSE_OK)
+  {
     return CONTEXT_DERIVE_ERROR;
   }
 
@@ -270,18 +293,21 @@ SecurityResult SecurityLayer::derive_context(const std::vector<uint8_t>& master_
 {
   // Master Secret and Master Salt have to be set already
   cose_algo_t algo = aead_algo_to_cose_algo(aead_params_.get_alg());
-  if (algo == COSE_ALGO_NONE) {
+  if (algo == COSE_ALGO_NONE)
+  {
     return PARAM_ERROR;
   }
 
   // Derive Sender Key
   auto res = derive_key(master_key, master_salt, sender_id_, algo, sender_key_bytes_, &sender_cose_key_);
-  if (res != OK) {
+  if (res != OK)
+  {
     return res;
   }
   // Derive Receiver Key
   res = derive_key(master_key, master_salt, receiver_id_, algo, receiver_key_bytes_, &receiver_cose_key_);
-  if (res != OK) {
+  if (res != OK)
+  {
     return res;
   }
 
@@ -313,7 +339,8 @@ SecurityResult SecurityLayer::cose_stateless_compress(uint8_t* cose, size_t cose
   const uint8_t* ciphertext;
   size_t ciphertext_len;
   int res = nanocbor_get_bstr(&v, &ciphertext, &ciphertext_len);
-  if (res < 0) {
+  if (res < 0)
+  {
     return COMP_ERROR;
   }
   memmove(cose, piv_ptr, piv_size_);
@@ -342,7 +369,8 @@ SecurityResult SecurityLayer::cose_stateless_decompress(uint8_t* data, size_t da
   size_t pl_ind_len = nanocbor_encoded_len(&enc);
 
   size_t decompressed_len = cose_prefix_len + piv_ind_len + piv_size_ + pl_ind_len + payload_len;
-  if (decompressed_len > data_max_len) {
+  if (decompressed_len > data_max_len)
+  {
     return BUFFER_ERROR;
   }
 
@@ -353,14 +381,16 @@ SecurityResult SecurityLayer::cose_stateless_decompress(uint8_t* data, size_t da
   uint8_t* piv_bstr_ptr = data + cose_prefix_len;
   nanocbor_encoder_init(&enc, piv_bstr_ptr, piv_ind_len);
   int res = nanocbor_fmt_bstr(&enc, piv_size_);
-  if (res < 0) {
+  if (res < 0)
+  {
     return INTERNAL_ERROR;
   }
 
   uint8_t* pl_bstr_ptr = payload_ptr + cose_prefix_len + piv_ind_len;
   nanocbor_encoder_init(&enc, pl_bstr_ptr, payload_len);
   res = nanocbor_fmt_bstr(&enc, payload_len);
-  if (res < 0) {
+  if (res < 0)
+  {
     return INTERNAL_ERROR;
   }
 
@@ -402,7 +432,8 @@ SecurityResult SecurityLayer::wrap(uint8_t* data, size_t data_len, size_t data_m
   *cose_len = len;
 #ifdef COSE_STATELESS_COMP_ENABLED
   st = cose_stateless_compress(*cose_ptr, len, cose_ptr, cose_len);
-  if (st != OK) {
+  if (st != OK)
+  {
     return st;
   }
 #endif
@@ -414,7 +445,8 @@ SecurityResult SecurityLayer::unwrap(uint8_t* data, size_t data_len, size_t data
 {
 #ifdef COSE_STATELESS_COMP_ENABLED
   auto st = cose_stateless_decompress(data, data_len, data_max_len, &data_len);
-  if (st != OK) {
+  if (st != OK)
+  {
     return st;
   }
 #else
