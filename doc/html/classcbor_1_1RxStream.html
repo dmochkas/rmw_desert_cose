@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">RMW desert<span id="projectnumber">&#160;1.0</span>
+   <div id="projectname">RMW desert<span id="projectnumber">&#160;5.0.0</span>
    </div>
   </td>
  </tr>
@@ -82,6 +82,11 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcbor_1_1RxStream_1_1ITEM.html">ITEM</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a69c580c78b5cf3cab873d750ba2afc50" id="r_a69c580c78b5cf3cab873d750ba2afc50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcbor_1_1RxStream.html#a69c580c78b5cf3cab873d750ba2afc50">RxStream</a> (uint8_t stream_type, std::string stream_name, uint8_t stream_identifier)</td></tr>
@@ -121,10 +126,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4601acf656cf4a5b205a16be6406c8e9" id="r_a4601acf656cf4a5b205a16be6406c8e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcbor_1_1RxStream.html">RxStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcbor_1_1RxStream.html#a4601acf656cf4a5b205a16be6406c8e9">operator&gt;&gt;</a> (int8_t &amp;n)</td></tr>
 <tr class="memdesc:a4601acf656cf4a5b205a16be6406c8e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode int8.  <br /></td></tr>
 <tr class="separator:a4601acf656cf4a5b205a16be6406c8e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d5f4974cf14be5f522926718c504056" id="r_a3d5f4974cf14be5f522926718c504056"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3d5f4974cf14be5f522926718c504056"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classcbor_1_1RxStream.html">RxStream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classcbor_1_1RxStream.html#a3d5f4974cf14be5f522926718c504056">deserialize_integer</a> (T &amp;n)</td></tr>
-<tr class="memdesc:a3d5f4974cf14be5f522926718c504056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a generic integer.  <br /></td></tr>
-<tr class="separator:a3d5f4974cf14be5f522926718c504056"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29f9001a0a72227c5b58833019863692" id="r_a29f9001a0a72227c5b58833019863692"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classcbor_1_1RxStream.html">RxStream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classcbor_1_1RxStream.html#a29f9001a0a72227c5b58833019863692">operator&gt;&gt;</a> (char &amp;n)</td></tr>
 <tr class="memdesc:a29f9001a0a72227c5b58833019863692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode char.  <br /></td></tr>
 <tr class="separator:a29f9001a0a72227c5b58833019863692"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -260,34 +261,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sequence_id</td><td>The id of the client service communication </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a3d5f4974cf14be5f522926718c504056" name="a3d5f4974cf14be5f522926718c504056"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d5f4974cf14be5f522926718c504056">&#9670;&#160;</a></span>deserialize_integer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classcbor_1_1RxStream.html">RxStream</a> &amp; cbor::RxStream::deserialize_integer </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Decode a generic integer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">n</td><td>Field to decode </td></tr>
   </table>
   </dd>
 </dl>
@@ -884,7 +857,8 @@ template&lt;typename T &gt; </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/desert_classes/<a class="el" href="CBorStream_8h_source.html">CBorStream.h</a></li>
-<li>src/desert_classes/<b>CBorStream.cpp</b></li>
+<li>src/desert_classes/<b>LibMcuCBorStream.cpp</b></li>
+<li>src/desert_classes/<b>NanoCBorStream.cpp</b></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

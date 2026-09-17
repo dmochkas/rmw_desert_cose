@@ -1,0 +1,9 @@
+<map id="src/desert_classes/security/SecurityLayer.h" name="src/desert_classes/security/SecurityLayer.h">
+<area shape="rect" id="Node000001" title="Class used to handle the encryption of the stream." alt="" coords="99,5,265,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,116,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,48,91,88,89,84,151,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="140,93,224,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="185,46,185,79,179,79,179,46"/>
+<area shape="rect" id="Node000004" href="$SecurityParams_8h.html" title="Class containing the parameters of the selected cryptography." alt="" coords="248,93,375,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,43,282,84,279,88,212,48"/>
+</map>

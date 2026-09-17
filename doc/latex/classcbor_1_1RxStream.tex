@@ -1,5 +1,10 @@
 \doxysection{cbor\+::Rx\+Stream Class Reference}
 \hypertarget{classcbor_1_1RxStream}{}\label{classcbor_1_1RxStream}\index{cbor::RxStream@{cbor::RxStream}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcbor_1_1RxStream_1_1ITEM}{ITEM}}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,8 +33,6 @@ void \mbox{\hyperlink{classcbor_1_1RxStream_a5c303c0a1ff0b32b62146416274e6964}{c
 \begin{DoxyCompactList}\small\item\em Decode int16. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcbor_1_1RxStream}{Rx\+Stream}} \& \mbox{\hyperlink{classcbor_1_1RxStream_a4601acf656cf4a5b205a16be6406c8e9}{operator$>$$>$}} (int8\+\_\+t \&n)
 \begin{DoxyCompactList}\small\item\em Decode int8. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{classcbor_1_1RxStream}{Rx\+Stream}} \& \mbox{\hyperlink{classcbor_1_1RxStream_a3d5f4974cf14be5f522926718c504056}{deserialize\+\_\+integer}} (T \&n)
-\begin{DoxyCompactList}\small\item\em Decode a generic integer. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcbor_1_1RxStream}{Rx\+Stream}} \& \mbox{\hyperlink{classcbor_1_1RxStream_a29f9001a0a72227c5b58833019863692}{operator$>$$>$}} (char \&n)
 \begin{DoxyCompactList}\small\item\em Decode char. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classcbor_1_1RxStream}{Rx\+Stream}} \& \mbox{\hyperlink{classcbor_1_1RxStream_a5d8b7b749f28c4f2287bf0a0c5b40b86}{operator$>$$>$}} (float \&f)
@@ -111,22 +114,6 @@ A map contains the information received for all topics and services, so using th
 
 \begin{DoxyParams}{Parameters}
 {\em sequence\+\_\+id} & The id of the client service communication \\
-\hline
-\end{DoxyParams}
-\Hypertarget{classcbor_1_1RxStream_a3d5f4974cf14be5f522926718c504056}\label{classcbor_1_1RxStream_a3d5f4974cf14be5f522926718c504056} 
-\index{cbor::RxStream@{cbor::RxStream}!deserialize\_integer@{deserialize\_integer}}
-\index{deserialize\_integer@{deserialize\_integer}!cbor::RxStream@{cbor::RxStream}}
-\doxysubsubsection{\texorpdfstring{deserialize\_integer()}{deserialize\_integer()}}
-{\footnotesize\ttfamily template$<$typename T $>$ \\
-\mbox{\hyperlink{classcbor_1_1RxStream}{Rx\+Stream}} \& cbor\+::\+Rx\+Stream\+::deserialize\+\_\+integer (\begin{DoxyParamCaption}\item[{T \&}]{n }\end{DoxyParamCaption})}
-
-
-
-Decode a generic integer. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em n} & Field to decode \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classcbor_1_1RxStream_acc473d3c4bccaf501d307a7756cc3740}\label{classcbor_1_1RxStream_acc473d3c4bccaf501d307a7756cc3740} 
@@ -459,4 +446,5 @@ When \doxylink{classcbor_1_1RxStream_a51fd2cb5fd15348118c4107beb3d7ad8}{interpre
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
 src/desert\+\_\+classes/\mbox{\hyperlink{CBorStream_8h}{CBor\+Stream.\+h}}\item 
-src/desert\+\_\+classes/CBor\+Stream.\+cpp\end{DoxyCompactItemize}
+src/desert\+\_\+classes/Lib\+Mcu\+CBor\+Stream.\+cpp\item 
+src/desert\+\_\+classes/Nano\+CBor\+Stream.\+cpp\end{DoxyCompactItemize}

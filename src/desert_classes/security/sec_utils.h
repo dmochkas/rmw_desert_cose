@@ -33,9 +33,13 @@
 #ifndef SEC_UTILS_H
 #define SEC_UTILS_H
 
+/** @cond */
+
 #include <string>
 #include <vector>
 #include <cstdint>
+
+/** @endcond */
 
 #define MIN(a, b) ((a) > (b) ? (b) : (a))
 

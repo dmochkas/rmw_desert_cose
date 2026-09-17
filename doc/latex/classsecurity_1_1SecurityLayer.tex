@@ -1,0 +1,20 @@
+\doxysection{security\+::Security\+Layer Class Reference}
+\hypertarget{classsecurity_1_1SecurityLayer}{}\label{classsecurity_1_1SecurityLayer}\index{security::SecurityLayer@{security::SecurityLayer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classsecurity_1_1SecurityLayer_ae746c85b2d7d36eb9d55522ec6aef086}\label{classsecurity_1_1SecurityLayer_ae746c85b2d7d36eb9d55522ec6aef086} 
+{\bfseries Security\+Layer} (const \mbox{\hyperlink{classsecurity_1_1AeadParams}{Aead\+Params}} \&aead\+\_\+params, Kdf\+Algorithms kdf, const std\+::vector$<$ uint8\+\_\+t $>$ \&master\+\_\+key, const std\+::vector$<$ uint8\+\_\+t $>$ \&master\+\_\+salt, size\+\_\+t piv\+\_\+size, size\+\_\+t sender\+\_\+seq\+\_\+number, const std\+::vector$<$ uint8\+\_\+t $>$ \&sender\+\_\+id, const std\+::vector$<$ uint8\+\_\+t $>$ \&receiver\+\_\+id)
+\item 
+\Hypertarget{classsecurity_1_1SecurityLayer_a558020dbde90e4489b35e6639e8aff8b}\label{classsecurity_1_1SecurityLayer_a558020dbde90e4489b35e6639e8aff8b} 
+Security\+Result {\bfseries wrap} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, size\+\_\+t data\+\_\+len, size\+\_\+t data\+\_\+max\+\_\+len, uint8\+\_\+t \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}cose\+\_\+ptr, size\+\_\+t \texorpdfstring{$\ast$}{*}cose\+\_\+len)
+\item 
+\Hypertarget{classsecurity_1_1SecurityLayer_a59a9b60c731fe2cbc793930aa98355af}\label{classsecurity_1_1SecurityLayer_a59a9b60c731fe2cbc793930aa98355af} 
+Security\+Result {\bfseries unwrap} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data, size\+\_\+t data\+\_\+len, size\+\_\+t data\+\_\+max\+\_\+len, size\+\_\+t \texorpdfstring{$\ast$}{*}new\+\_\+data\+\_\+len)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/desert\+\_\+classes/security/\mbox{\hyperlink{SecurityLayer_8h}{Security\+Layer.\+h}}\item 
+src/desert\+\_\+classes/security/Security\+Layer.\+cpp\end{DoxyCompactItemize}

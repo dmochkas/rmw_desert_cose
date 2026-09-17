@@ -33,9 +33,13 @@
 #ifndef SECURITY_LAYER_H
 #define SECURITY_LAYER_H
 
+/** @cond */
+
 #include <memory>
 #include <string>
 #include <vector>
+
+/** @endcond */
 
 #include <cose_defines.h>
 #include <cose/key.h>

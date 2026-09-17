@@ -33,7 +33,11 @@
 #ifndef SECURITY_CONFIG_H
 #define SECURITY_CONFIG_H
 
+/** @cond */
+
 #include <cstdint>
+
+/** @endcond */
 
 #define AEAD_ALGO_ASCON_128 "Ascon-AEAD128"
 #define AEAD_ALGO_ASCON_128_64 "Ascon-AEAD128-64"

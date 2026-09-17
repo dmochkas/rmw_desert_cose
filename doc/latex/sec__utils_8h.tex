@@ -1,0 +1,29 @@
+\doxysection{src/desert\+\_\+classes/security/sec\+\_\+utils.h File Reference}
+\hypertarget{sec__utils_8h}{}\label{sec__utils_8h}\index{src/desert\_classes/security/sec\_utils.h@{src/desert\_classes/security/sec\_utils.h}}
+
+
+Utilities for the security layer.  
+
+
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sec__utils_8h_a3acffbd305ee72dcd4593c0d8af64a4f}\label{sec__utils_8h_a3acffbd305ee72dcd4593c0d8af64a4f} 
+\#define {\bfseries MIN}(a,  b)~((a) $>$ (b) ? (b) \+: (a))
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{sec__utils_8h_ae91b9ad6e5f5e2d6f54b7edba7150301}\label{sec__utils_8h_ae91b9ad6e5f5e2d6f54b7edba7150301} 
+bool {\bfseries decode\+\_\+hex} (const std\+::string \&hex, std\+::vector$<$ uint8\+\_\+t $>$ \&out)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utilities for the security layer. 
+
+This header declares utility functions shared by the security layer. It includes helpers for converting hexadecimal strings into byte vectors and small generic macros used while processing cryptographic input data. These utilities support configuration parsing and internal data handling.
+
+\begin{DoxyAuthor}{Author}
+Dmytro Ochkas 
+\end{DoxyAuthor}
